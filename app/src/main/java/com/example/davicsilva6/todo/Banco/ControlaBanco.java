@@ -91,5 +91,19 @@ public class ControlaBanco {
         db.close();
 
     }
+    public  Cursor carregaDadoPorId(int id){
+        Cursor cursor;
+        String[] campos = {" id", "nome"};
+        String where =  "id = " + id;
+        db = banco.getReadableDatabase();
+        cursor = db.query("tarefa", campos, where,null, null, null, null);
+
+        if ((cursor!=null)){
+            cursor.moveToFirst();
+
+        }
+        db.close();
+        return cursor;
+    }
 
 }

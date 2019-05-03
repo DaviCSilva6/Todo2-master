@@ -1,5 +1,6 @@
 package com.example.davicsilva6.todo;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -38,6 +39,14 @@ public class ListaActivity extends AppCompatActivity {
                 finish();
                 startActivity(getIntent());
                 return false;
+            }
+        });
+        lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(ListaActivity.this, AtualizaActivity.class);
+                startActivity(intent);
+
             }
         });
 

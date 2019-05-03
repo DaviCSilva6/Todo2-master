@@ -4,4 +4,6 @@
     <string name="btn_cadastrar">Cadastrar</string>
     <string name="btn_listar">Listar</string>
     <string name="title_activity_cadastro">CadastroActivity</string>
+    <string name="titulo_atualiza">Atualiza</string>
+    <string name="btn_salvar">Salvar</string>
 </resources>
