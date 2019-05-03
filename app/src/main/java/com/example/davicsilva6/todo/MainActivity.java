@@ -17,17 +17,16 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
     }
 
-    public void insere(View view){
+    public void insere(View view) {
         ControlaBanco crud = new ControlaBanco(getBaseContext());
         EditText edNome = findViewById(R.id.txtNome);
         TextView tvResultado = findViewById(R.id.tvResultado);
 
         String nome = edNome.getText().toString();
 
-        if (nome.equals("")){
+        if (nome.equals("")) {
             tvResultado.setText("Campo não pode ser vazio");
-        }
-        else {
+        } else {
             String resultado = crud.insereDado(nome);
             tvResultado.setText(resultado);
 
@@ -38,8 +37,16 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    public void listar(View view) {
+        Intent intent = new Intent(this, ListaActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void cadastrar(View view) {
+        Intent intent = new Intent(this, CadastroActivity.class);
+        startActivity(intent);
+    }
+
+
 }
-
-
-
-

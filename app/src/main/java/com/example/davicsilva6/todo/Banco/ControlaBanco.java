@@ -84,4 +84,12 @@ public class ControlaBanco {
         return cursor;
     }
 
+    public void deletaDado(int id){
+        String where = "_id = " + id;
+        db = banco.getReadableDatabase();
+        db.delete("tarefa",where, null);
+        db.close();
+
+    }
+
 }
