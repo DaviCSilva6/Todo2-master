@@ -29,6 +29,8 @@ public class ListaActivity extends AppCompatActivity {
 
         lista = findViewById(R.id.listView);
         lista.setAdapter(adapter);
+
+        //Cliquue longo para apagar um item da lista
         lista.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
             @Override
             public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
@@ -40,15 +42,23 @@ public class ListaActivity extends AppCompatActivity {
                 startActivity(getIntent());
                 return false;
             }
-        });
+        });//final das atividades para o clique longo
+
+
+        //Clique curto para redimensionar para uma nova activity
         lista.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Integer codigoId;
+                cursor.moveToPosition(position);
+                codigoId = cursor.getInt(cursor.getColumnIndexOrThrow("_id"));
                 Intent intent = new Intent(ListaActivity.this, AtualizaActivity.class);
+                intent.putExtra("codigoId",codigoId.toString());
                 startActivity(intent);
+                finish();
 
             }
-        });
+        });//Final do clique curto
 
     }
 }
